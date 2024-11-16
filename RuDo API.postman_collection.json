@@ -1,0 +1,1267 @@
+{
+	"info": {
+		"_postman_id": "6b070461-fed7-444a-9b17-b740c017538f",
+		"name": "RuDo API",
+		"description": "Postman Collection for RuDo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23138700"
+	},
+	"item": [
+		{
+			"name": "Mobile APIs",
+			"item": [
+				{
+					"name": "Get Quiz",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quizName\": \"rudo-risk-profiler\"\n}"
+						},
+						"url": "{{base_url}}/api/getQuestions"
+					},
+					"response": []
+				},
+				{
+					"name": "Answer Quiz and Create Portfolio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"quizName\": \"rudo-risk-profiler\",\n    \"quizRequest\": [\n        {\n            \"questionId\": 1,\n            \"answerId\": 1\n        },\n        {\n            \"questionId\": 2,\n            \"answerId\": 10\n        },\n        {\n            \"questionId\": 3,\n            \"answerId\": 16\n        },\n        {\n            \"questionId\": 4,\n            \"answerId\": \"20,21,22\"\n        },\n        {\n            \"questionId\": 5,\n            \"answerId\": 26\n        },\n        {\n            \"questionId\": 6,\n            \"answerId\": 31\n        },\n        {\n            \"questionId\": 7,\n            \"answerId\": \"36,37\"\n        },\n        {\n            \"questionId\": 8,\n            \"answerId\": 41\n        }\n    ]\n}"
+						},
+						"url": "{{base_url}}/api/postAnswers"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Portfolio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"portfolio\": \"Balanced\"\n}"
+						},
+						"url": "{{base_url}}/api/changePortfolio"
+					},
+					"response": []
+				},
+				{
+					"name": "Post e-KYC Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"identification\": \"Verified\",\n        \"personalInfo\": {\n            \"fullName\": \"Chiranjeevi Muralidhar karanji\",\n            \"firstName\": \"Chiranjeevi\",\n            \"middleName\": \"Muralidhar\",\n            \"lastName\": \"karanji\",\n            \"dob\": \"1995-02-05\",\n            \"gender\": \"Male\",\n            \"expiry\": \"3000-01-01\",\n            \"displayname\": \"Chiranjeevi\",\n            \"documentType\": \"Emirates ID\"\n        },\n        \"residenceInfo\": {\n            \"address\": {\n                \"addressLine1\": \"Sri Amba Krupa\",\n                \"addressLine2\": \"64\"\n            },\n            \"country\": {\n                \"region\": \"India\",\n                \"state\": \"Karnataka\",\n                \"city\": \"Shimoga\",\n                \"countryFullForm\": \"India\",\n                \"zip\": \"577201\"\n            },\n            \"phoneNumber\": \"+917675620012\"\n        },\n        \"employmentInfo\": {\n            \"employmentStatus\": \"STUDENT\"\n        },\n        \"taxInfo\": {\n            \"taxResidence\": \"IND\",\n            \"countrySelect\": \"India\",\n            \"agreementCheckBox\": true,\n            \"taxID\": \"324689\",\n            \"taxIDType\": \"NOT_SPECIFIED\",\n            \"countryOfCitizenship\": \"India\",\n            \"countryOfCitizenshipISO\": \"IND\"\n        },\n        \"disclosers\": {\n            \"is_control_person\": false,\n            \"is_affiliated_exchange_or_finra\": false,\n            \"is_politically_exposed\": false,\n            \"immediate_family_exposed\": false\n        },\n        \"reference\": {\n            \"question4\": \"Internet\",\n            \"referenceCode\": null\n        },\n        \"reviewAgreement\": {\n            \"agreement1\": true,\n            \"agreement2\": true,\n            \"agreement3\": true\n        },\n        \"nominee\": {\n            \"firstName\": \"Rahul\",\n            \"lastName\": \"Sarkar\",\n            \"emailAddress\": \"rahul.sarkar@gmail.com\",\n            \"phone\": \"+919109688271\"\n        },\n        \"eSignature\": \"z6QtewDKnlbAsaSJSAH6r\"\n    }\n}"
+						},
+						"url": "{{base_url}}/api/uploadKYCData"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Local Authentication",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getLocalAuth"
+					},
+					"response": []
+				},
+				{
+					"name": "Login using Local Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pin\": 1234\n}"
+						},
+						"url": "{{base_url}}/api/loginUsingLocalAuth"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Local Authentication",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"auth_type\": \"pin\",\n    \"is_enabled\": true,\n    \"pin\": 1234\n}"
+						},
+						"url": "{{base_url}}/api/updateLocalAuth"
+					},
+					"response": []
+				},
+				{
+					"name": "Change Display Name",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"displayName\": \"xyz\"\n}"
+						},
+						"url": "{{base_url}}/api/changeDisplayName"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Summary of Total Investment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"investment_number\": 3\n}"
+						},
+						"url": "{{base_url}}/api/totalInvested"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Email Registered in Backend",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"anil.thakur@gmail.com\",\n    \"isRegisteredPage\": true\n}"
+						},
+						"url": "{{base_url}}/api/isEmailRegistered"
+					},
+					"response": []
+				},
+				{
+					"name": "Save the Device ID (Token)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"bgfcvuiyefbhjrewkbvfruiegfrvbjhrfkwvhrvuervvb\"\n}"
+						},
+						"url": "{{base_url}}/api/saveDeviceId"
+					},
+					"response": []
+				},
+				{
+					"name": "Check User Authentication",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/authCheck"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Onfido SDK Token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/onfido/getToken"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Onfido SDK Token Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"onfidoToken\": \"cdhsbwveuihruisv2451vasnfevn\"\n}"
+						},
+						"url": "{{base_url}}/api/onfido/updateToken"
+					},
+					"response": []
+				},
+				{
+					"name": "Get IP and Date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getIpAndDate"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Selected Currency",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"selectedCurrency\": \"AED\"\n}"
+						},
+						"url": "{{base_url}}/api/updateSelectedCurrency"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a New Recurring Investment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"period\": \"0 8 * * *\"\n}"
+						},
+						"url": "{{base_url}}/api/createRecurring"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Recurring Investment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"isActive\": false,\n    \"recurringConfigId\": 51\n}"
+						},
+						"url": "{{base_url}}/api/updateRecurring"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Recurring Investments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getRecurring"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Recurring Transactions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getAllRecurringTransactions"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Positions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"minimal\": true,\n    \"selectedCurrency\": \"AED\"\n}"
+						},
+						"url": "{{base_url}}/api/getPositions"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Portfolio History",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"period\": \"All\",\n    \"selectedCurrency\": \"AED\"\n}"
+						},
+						"url": "{{base_url}}/api/getUserPortfolioHistory"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recent Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getRecentActivities"
+					},
+					"response": []
+				},
+				{
+					"name": "Show All Notifications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/showAllNotification"
+					},
+					"response": []
+				},
+				{
+					"name": "Unread Notifications Count",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/unreadNotificationsCount"
+					},
+					"response": []
+				},
+				{
+					"name": "Mark Notifications as Read",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"notification_ids\": [\n        526,\n        544\n    ]\n}"
+						},
+						"url": "{{base_url}}/api/markNotificationsAsRead"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Resident Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getResidentDetails"
+					},
+					"response": []
+				},
+				{
+					"name": "Get User's State",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/state"
+					},
+					"response": []
+				},
+				{
+					"name": "Fetch Top Blogs (Pending)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/fetchtopblogs"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current Allocations of Funds",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getCurrentAllocation"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Allocations of a Portfolio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"portfolio\": \"Conservative\"\n}"
+						},
+						"url": "{{base_url}}/api/getAllocations"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Address in DB and Alpaca",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"addressUpdateInfo\": {\n        \"addressLine1\": \"siliguri\",\n        \"addressLine2\": \"pradhan nagar\",\n        \"region\": \"India\",\n        \"state\": \"west bengal\",\n        \"city\": \"siliguri\",\n        \"countryFullForm\": \"India\",\n        \"zip\": \"57453641454\",\n        \"phoneNumber\": \"8632486725\"\n    },\n    \"taxUpdateInfo\": {\n        \"question1\": \"No\",\n        \"taxResidence\": \"IND\",\n        \"question2\": \"no\",\n        \"countrySelect\": \"India\",\n        \"agreementCheckBox\": true,\n        \"taxID\": \"nx\",\n        \"taxIDType\": \"IND_PAN\",\n        \"countryOfCitizenship\": \"India\"\n    }\n}"
+						},
+						"url": "{{base_url}}/api/updateAddress"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Linked Bank Accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getLinkedBankAccounts"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Lean Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getLeanData"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Payment Status",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paymentIntentId\": \"ef9ce123-c558-4942-80ad-5486780b6735\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/getPaymentStatus"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dividends",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"totalInvests\":4   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/getAllDividends"
+					},
+					"response": []
+				},
+				{
+					"name": "Lean Webhook",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/lean"
+					},
+					"response": []
+				},
+				{
+					"name": "Fill W8-BEN PDF",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"personalInfo\": {\r\n    \"fullName\": \"Anil Thakur\",\r\n    \"firstName\": \"Anil\",\r\n    \"middleName\": \"\",\r\n    \"lastName\": \"Thakur\",\r\n    \"dob\": \"30-09-1998\",\r\n    \"gender\": \"male\",\r\n    \"idNumber\": \"154984655\",\r\n    \"expiry\": \"value\",\r\n    \"email\": \"anil@hod.com\"\r\n  },\r\n  \"countryOfCitizenship\": \"India\",\r\n  \"taxId\": \"86245\",\r\n  \"residenceInfo\": {\r\n    \"address\": {\r\n      \"addressLine1\": \"Kings Landing\",\r\n      \"addressLine2\": \"Dragonstone\"\r\n    },\r\n    \"country\": {\r\n      \"region\": \"Valeria\",\r\n      \"state\": \"Western Valeria\",\r\n      \"city\": \"Dragon City\",\r\n      \"zip\": \"123456\"\r\n    },\r\n    \"phoneNumber\": \"+918899665544\"\r\n  },\r\n  \"employmentInfo\": {\r\n    \"employmentStatus\": \"value\",\r\n    \"employer\": \"value\",\r\n    \"function\": \"value\",\r\n    \"employerAddress\": \"adress\"\r\n  },\r\n  \"sign\": \"signature will show here!\",\r\n  \"ssn\": \"ssn here\",\r\n  \"ftiNumber\": \"ftiNumber123\",\r\n  \"refNumber\": \"refNumber123\",\r\n  \"dob\": \"7-7-2000\",\r\n  \"treaty\": \"treaty12\",\r\n  \"claim\": \"7\",\r\n  \"signatureDate\": \"02-22-2023\",\r\n  \"uid\": \"u672542xyz\",\r\n  \"chekYesNo\": 1,\r\n  \"ftnreq\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/filledW8ben"
+					},
+					"response": []
+				},
+				{
+					"name": "Download W8-BEN PDF",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/downloadW8ben/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"downloadW8ben",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "40_1730196215_W8ben.pdf"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initiate Withdrawal",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 100,\n    \"reason\": \"Achieved my financial goal\",\n    \"accountID\": \"402d6b71-9c8f-4602-a2a1-10bc69a15b3f\",\n    \"txnType\": \"withdrawal\"\n}"
+						},
+						"url": "{{base_url}}/api/initiateWithdrawal"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Withdrawal Activity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"withdrawals_number\": 3\n}"
+						},
+						"url": "{{base_url}}/api/withdrawalsActivity"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WEB",
+			"item": [
+				{
+					"name": "Get withdraw requests",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{web_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": \"all\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/adminConsole/getWithdrawRequests"
+					},
+					"response": []
+				},
+				{
+					"name": "Get fund details to wire to Alpaca",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{web_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/createWire"
+					},
+					"response": [
+						{
+							"name": "Get fund details to wire to Alpaca",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{web_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{base_url}}/api/createWire"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 08 Oct 2024 06:49:41 GMT"
+								},
+								{
+									"key": "X-Ratelimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-Ratelimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Content-Length",
+									"value": "172"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Status\": \"Success\",\n    \"Data\": {\n        \"alpacaFunds\": \"37626.27\",\n        \"totalUsers\": 1,\n        \"details\": [\n            {\n                \"id\": 221,\n                \"AED\": 100,\n                \"USD\": 27.17,\n                \"name\": \"Anil  Thakur\",\n                \"status\": \"pending\"\n            }\n        ],\n        \"totalUSD\": 27.17\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Add transaction details after wire transfer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{web_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"transferDetails\": \"Initial wire 29 Apr 2024\",\n  \"amount\": 67.93,\n  \"wireDate\": \"2024-04-29\",\n  \"transactionIds\": [\n    221,\n    227\n  ]\n}"
+						},
+						"url": "{{base_url}}/api/submitWireId"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all wire details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{web_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getAllWires"
+					},
+					"response": []
+				},
+				{
+					"name": "Get fund details for a wire",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{web_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/getFundTransferForWire/:wireId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"getFundTransferForWire",
+								":wireId"
+							],
+							"variable": [
+								{
+									"key": "wireId",
+									"value": "183"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all accounts with summary",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{web_token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/getAllAccountsWithSummary"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all investment details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{web_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/allInvestmentDetails/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"allInvestmentDetails",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://api.rudowealth.com"
+		},
+		{
+			"key": "token",
+			"value": "828|3vLZzzTVJAzXZVumJ59TXuBZmeusHdAYby4PjVTF"
+		},
+		{
+			"key": "web_token",
+			"value": "829|PjLa9DCfFFl4CL7ia8gvE3FmYsmfY7S6gMF1P0Ii",
+			"type": "string"
+		}
+	]
+}
